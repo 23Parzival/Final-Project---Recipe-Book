@@ -25,12 +25,12 @@ public class RecipeBook
 
     public void addRecipe(Recipe r)
     {
-        r = new Recipe();
+        recipes.add(r);
     }
     
     public ArrayList<Recipe> listAllRecipes() 
     {
-        
+        return recipes;
     }
     
     public ArrayList<Recipe> listByType(RecipeType t) 

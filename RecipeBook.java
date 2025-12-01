@@ -35,7 +35,8 @@ public class RecipeBook
     
     public ArrayList<Recipe> listByType(RecipeType t) 
     {
-        
+        //loop through each recipe checking to see if it has RecipeType t,
+        //if it does add it to new ArrayList then return that ArrayList
     }
     
     public ArrayList<Recipe> seachByTitle(String title) 

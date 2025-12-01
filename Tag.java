@@ -1,5 +1,3 @@
- 
-
 
 /**
  * Enumeration class Tag - write a description of the enum class here

@@ -1,5 +1,3 @@
- 
-
 import java.util.ArrayList;
 import java.util.EnumSet;
 
@@ -11,7 +9,7 @@ import java.util.EnumSet;
  */
 public class Recipe
 {
-    public String Title;
+    public String title;
     public ArrayList<Ingredient> ingredients;
     public ArrayList<Step> steps;
     public EnumSet<Tag> tags;
@@ -23,9 +21,10 @@ public class Recipe
     /**
      * Constructor for objects of class Recipe
      */
-    public Recipe()
+    public Recipe(String title, int servings)
     {
-        
+        this.title = title;
+        this.servings = servings;
     }
 
     /**
@@ -36,22 +35,22 @@ public class Recipe
      */
     public void addIngredient(Ingredient i)
     {
-        
+        ingredients.add(i);
     }
     
     public void addStep(Step s)
     {
-        
+        steps.add(s);
     }
     
     public void addTag(Tag t)
     {
-        
+        tags.add(t);
     }
     
     public void rate(int score)
     {
-        
+        ratingCount = score;
     }
     
     public void scaleServings(int newServ)

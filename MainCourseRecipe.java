@@ -1,5 +1,3 @@
- 
-
 
 /**
  * Write a description of class MainCourseRecipe here.
@@ -10,12 +8,11 @@
 public class MainCourseRecipe extends Recipe
 {
     public int cookingTime;
-    
     /**
      * Constructor for objects of class MainCourseRecipe
      */
     public MainCourseRecipe()
     {
-        
+        super.title = title;
     }
 }

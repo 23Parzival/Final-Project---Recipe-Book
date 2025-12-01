@@ -1,5 +1,3 @@
- 
-
 
 /**
  * Write a description of class DrinkRecipe here.
@@ -10,12 +8,11 @@
 public class DrinkRecipe extends Recipe
 {
     public boolean chilled;
-    
     /**
      * Constructor for objects of class DrinkRecipe
      */
-    public DrinkRecipe()
+    public DrinkRecipe(boolean chilled)
     {
-        
+        this.chilled = chilled;
     }
 }

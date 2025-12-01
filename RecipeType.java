@@ -1,5 +1,3 @@
- 
-
 
 /**
  * Enumeration class RecipeType - write a description of the enum class here

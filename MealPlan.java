@@ -1,3 +1,5 @@
+ 
+
 import java.util.HashMap;
 
 /**
@@ -20,17 +22,17 @@ public class MealPlan
 
     public void assignRecipe(DayOfWeek day, Recipe r)
     {
-        
+        plan.put(day, r);
     }
     
     public void removeRecipe(DayOfWeek day) 
     {
-        
+        plan.remove(day);
     }
     
     public HashMap<DayOfWeek, Recipe> getWeeklyPlan() 
     {
-        
+        return plan;
     }
     
     public void printWeeklyPlan() 
@@ -40,6 +42,6 @@ public class MealPlan
     
     public void clear() 
     {
-        
+        plan.clear();
     }
 }

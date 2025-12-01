@@ -8,6 +8,7 @@
 public class Step
 {
     private String description;
+    
     /**
      * Constructor for objects of class Step
      */

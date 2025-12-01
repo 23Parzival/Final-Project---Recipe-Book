@@ -15,7 +15,7 @@ public class MealPlan
      */
     public MealPlan()
     {
-        
+        plan = new HashMap<>();
     }
 
     public void assignRecipe(DayOfWeek day, Recipe r)

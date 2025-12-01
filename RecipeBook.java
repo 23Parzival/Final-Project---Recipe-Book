@@ -37,23 +37,46 @@ public class RecipeBook
     
     public ArrayList<Recipe> listByType(RecipeType t) 
     {
-        //loop through each recipe checking to see if it has RecipeType t,
-        //if it does add it to new ArrayList then return that ArrayList
+        ArrayList<Recipe> recipesByType = new ArrayList<>();
+        for(Recipe r: recipes) {
+            if(r.getType().equals(t)) {
+                recipesByType.add(r);
+            }
+        }
+        return recipesByType;
     }
     
-    public ArrayList<Recipe> seachByTitle(String title) 
+    public ArrayList<Recipe> seachByTitle(String t) 
     {
-        
+        ArrayList<Recipe> recipesByTitle = new ArrayList<>();
+        for(Recipe r: recipes) {
+            if(r.getTitle().equals(t)) {
+                recipesByTitle.add(r);
+            }
+        }
+        return recipesByTitle;
     }
     
-    public ArrayList<Recipe> searchByIngredient(String ingredient)
+    public ArrayList<Recipe> searchByIngredient(String i)
     {
-        
+        ArrayList<Recipe> recipesByIngredient = new ArrayList<>();
+        for(Recipe r: recipes) {
+            if(r.getIngredient().equals(i)) {
+                recipesByIngredient.add(r);
+            }
+        }
+        return recipesByIngredient;
     }
     
     public ArrayList<Recipe> searchByTag(Tag t) 
     {
-        
+        ArrayList<Recipe> recipesByTag = new ArrayList<>();
+        for(Recipe r: recipes) {
+            if(r.getTag().equals(t)) {
+                recipesByTag.add(r);
+            }
+        }
+        return recipesByTag;
     }
     
     public ArrayList<Recipe> getTopRated(int n) 

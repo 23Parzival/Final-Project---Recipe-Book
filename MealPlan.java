@@ -3,7 +3,7 @@ import java.util.HashMap;
 /**
  * Write a description of class MealPlan here.
  *
- * @author (your name)
+ * @author Julien P-H
  * @version (a version number or a date)
  */
 public class MealPlan

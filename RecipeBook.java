@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Write a description of class RecipeBook here.
  *
- * @author (your name)
+ * @author Julien P-H
  * @version (a version number or a date)
  */
 public class RecipeBook

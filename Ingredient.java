@@ -2,7 +2,7 @@
 /**
  * Write a description of class Ingredient here.
  *
- * @author (your name)
+ * @author Julien P-H
  * @version (a version number or a date)
  */
 public class Ingredient

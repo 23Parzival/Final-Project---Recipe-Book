@@ -23,9 +23,9 @@ public class RecipeBook
         recipes = new ArrayList<>();
     }
 
-    public void addRecipe()
+    public void addRecipe(Recipe r)
     {
-        
+        r = new Recipe();
     }
     
     public ArrayList<Recipe> listAllRecipes() 

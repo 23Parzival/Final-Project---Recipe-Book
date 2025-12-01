@@ -7,5 +7,5 @@
  */
 public enum RecipeType
 {
-    MAIN_COURSE, SIDE_DISH, SNACK, DESSERT, DRINK
+    MAIN_COURSE, DESSERT, DRINK
 }

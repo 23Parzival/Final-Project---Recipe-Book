@@ -16,7 +16,7 @@ public class Controller
     /**
      * Constructor for objects of class InputReader
      */
-    public InputReader()
+    public Controller()
     {
         
     }

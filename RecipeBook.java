@@ -16,8 +16,11 @@ public class RecipeBook
     /**
      * Constructor for objects of class RecipeBook
      */
-    public RecipeBook()
+    public RecipeBook(String title, String author)
     {
+        this.title = title;
+        this.author = author;
+        recipes = new ArrayList<>();
     }
 
     public void addRecipe()
@@ -54,4 +57,25 @@ public class RecipeBook
     {
         
     }
+    
+    @Override
+    public String toString() {
+        if (recipes.isEmpty()) {
+            return "Recipe Book is empty.";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Recipe Book:\n");
+
+        int index = 1;
+        for (Recipe r : recipes) {
+            sb.append(index++)
+              .append(". ")
+              .append(r.toString())   //uses each Recipe's own toString()
+              .append("\n");
+        }
+
+        return sb.toString();
+    }
+
 }

@@ -18,7 +18,7 @@ public class Controller
      */
     public Controller()
     {
-        
+        possibleResponses = new HashMap<>();
     }
 
     public void fillHashMap()

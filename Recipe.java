@@ -9,30 +9,48 @@ import java.util.EnumSet;
  */
 public class Recipe
 {
-    public String title;
-    public ArrayList<Ingredient> ingredients;
-    public ArrayList<Step> steps;
-    public EnumSet<Tag> tags;
-    public double ratingSum;
-    public int ratingCount;
-    public int servings;
+    private String title;
+    private ArrayList<Ingredient> ingredients;
+    private ArrayList<Step> steps;
+    private EnumSet<Tag> tags;
+    private RecipeType type;
+    private int rating;
+    private int servings;
     
-
     /**
      * Constructor for objects of class Recipe
      */
-    public Recipe(String title, int servings)
+    public Recipe(String title, int servings, RecipeType type)
     {
         this.title = title;
         this.servings = servings;
+        this.type = type;
+        
+        ingredients = new ArrayList<>();
+        steps = new ArrayList<>();
+        tags = EnumSet.noneOf(Tag.class);
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public RecipeType getType() {
+        return type;
+    }
+    
+    public boolean checkIngredient(Ingredient i) {
+        return ingredients.contains(i);
+    }
+    
+    public boolean checkTag(Tag t) {
+        return tags.contains(t);
+    }
+    
+    public int getRating() {
+        return rating;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public void addIngredient(Ingredient i)
     {
         ingredients.add(i);
@@ -48,9 +66,9 @@ public class Recipe
         tags.add(t);
     }
     
-    public void rate(int score)
+    public void setRating(int rating)
     {
-        ratingCount = score;
+        this.rating = rating;
     }
     
     public void scaleServings(int newServ)

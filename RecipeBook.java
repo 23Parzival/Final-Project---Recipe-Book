@@ -65,12 +65,12 @@ public class RecipeBook
         }
     }
     
-    public ArrayList<Recipe> searchByIngredient(String i)
+    public ArrayList<Recipe> searchByIngredient(Ingredient i)
     {
         if(!recipes.isEmpty()) {
             ArrayList<Recipe> recipesByIngredient = new ArrayList<>();
             for(Recipe r: recipes) {
-                if(r.getIngredient().equals(i)) {
+                if(r.checkIngredient(i)) {
                     recipesByIngredient.add(r);
                 }
             }
@@ -86,7 +86,7 @@ public class RecipeBook
         if(!recipes.isEmpty()) {
             ArrayList<Recipe> recipesByTag = new ArrayList<>();
             for(Recipe r: recipes) {
-                if(r.getTag().equals(t)) {
+                if(r.checkTag(t)) {
                     recipesByTag.add(r);
                 }
             }

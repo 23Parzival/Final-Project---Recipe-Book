@@ -97,16 +97,24 @@ public class RecipeBook
         }
     }
     
-    public Recipe getTopRated() 
+    public ArrayList<Recipe> getTopRated() 
     {
         if(!recipes.isEmpty()) {
-            Recipe top = recipes.get(0);
+            ArrayList<Recipe> result = new ArrayList<>();
+            int maxRating = recipes.get(0).getRating();
+            //find largest rating (int)
             for (Recipe r : recipes) {
-                if (r.getRating() > top.getRating()) {
-                    top = r;
+                if (r.getRating() > maxRating) {
+                    maxRating = r.getRating();
                 }
             }
-            return top;
+            //find every recipe with largest rating then return them all in an arraylist
+            for (Recipe r : recipes) {
+                if (r.getRating() == maxRating) {
+                    result.add(r);
+                }
+            }
+            return result;
         }
         else {
             return null;

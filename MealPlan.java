@@ -37,7 +37,17 @@ public class MealPlan
     
     public void printWeeklyPlan() 
     {
-        
+        System.out.println("=== Weekly Meal Plan ===");
+        for (DayOfWeek day : DayOfWeek.values()) {
+            Recipe r = plan.get(day);
+            if (r != null) {
+                System.out.println(day + ": " + r.getTitle());
+            } 
+            else {
+                System.out.println(day + ": (no recipe assigned)");
+            }
+        }
+        System.out.println("========================");
     }
     
     public void clear() 

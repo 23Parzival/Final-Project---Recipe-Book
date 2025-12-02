@@ -35,51 +35,82 @@ public class RecipeBook
     
     public ArrayList<Recipe> listByType(RecipeType t) 
     {
-        ArrayList<Recipe> recipesByType = new ArrayList<>();
-        for(Recipe r: recipes) {
-            if(r.getType().equals(t)) {
-                recipesByType.add(r);
+        if(!recipes.isEmpty()) {
+            ArrayList<Recipe> recipesByType = new ArrayList<>();
+            for(Recipe r: recipes) {
+                if(r.getType().equals(t)) {
+                    recipesByType.add(r);
+                }
             }
+            return recipesByType;
         }
-        return recipesByType;
+        else {
+            return null;
+        }
     }
     
     public ArrayList<Recipe> seachByTitle(String t) 
     {
-        ArrayList<Recipe> recipesByTitle = new ArrayList<>();
-        for(Recipe r: recipes) {
-            if(r.getTitle().equals(t)) {
-                recipesByTitle.add(r);
+        if(!recipes.isEmpty()) {
+            ArrayList<Recipe> recipesByTitle = new ArrayList<>();
+            for(Recipe r: recipes) {
+                if(r.getTitle().equals(t)) {
+                    recipesByTitle.add(r);
+                }
             }
+            return recipesByTitle;
         }
-        return recipesByTitle;
+        else {
+            return null;
+        }
     }
     
     public ArrayList<Recipe> searchByIngredient(String i)
     {
-        ArrayList<Recipe> recipesByIngredient = new ArrayList<>();
-        for(Recipe r: recipes) {
-            if(r.getIngredient().equals(i)) {
-                recipesByIngredient.add(r);
+        if(!recipes.isEmpty()) {
+            ArrayList<Recipe> recipesByIngredient = new ArrayList<>();
+            for(Recipe r: recipes) {
+                if(r.getIngredient().equals(i)) {
+                    recipesByIngredient.add(r);
+                }
             }
+            return recipesByIngredient;
         }
-        return recipesByIngredient;
+        else {
+            return null;
+        }
     }
     
     public ArrayList<Recipe> searchByTag(Tag t) 
     {
-        ArrayList<Recipe> recipesByTag = new ArrayList<>();
-        for(Recipe r: recipes) {
-            if(r.getTag().equals(t)) {
-                recipesByTag.add(r);
+        if(!recipes.isEmpty()) {
+            ArrayList<Recipe> recipesByTag = new ArrayList<>();
+            for(Recipe r: recipes) {
+                if(r.getTag().equals(t)) {
+                    recipesByTag.add(r);
+                }
             }
+            return recipesByTag;
         }
-        return recipesByTag;
+        else {
+            return null;
+        }
     }
     
-    public ArrayList<Recipe> getTopRated(int n) 
+    public Recipe getTopRated() 
     {
-        
+        if(!recipes.isEmpty()) {
+            Recipe top = recipes.get(0);
+            for (Recipe r : recipes) {
+                if (r.getRating() > top.getRating()) {
+                    top = r;
+                }
+            }
+            return top;
+        }
+        else {
+            return null;
+        }
     }
     
     @Override
@@ -101,5 +132,4 @@ public class RecipeBook
 
         return sb.toString();
     }
-
 }

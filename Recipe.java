@@ -39,6 +39,10 @@ public class Recipe
         return type;
     }
     
+    public EnumSet<Tag> getTags() {
+        return tags;
+    }
+    
     public boolean checkIngredient(Ingredient i) {
         return ingredients.contains(i);
     }
@@ -49,6 +53,11 @@ public class Recipe
     
     public int getRating() {
         return rating;
+    }
+    
+    public int getServings() 
+    {
+        
     }
 
     public void addIngredient(Ingredient i)

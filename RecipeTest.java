@@ -48,5 +48,14 @@ public class RecipeTest
         recipe1.setRating(5);
         assertEquals(5, recipe1.getRating());
     }
+    
+    @Test
+    public void testScaleServings()
+    {
+        Recipe recipe1 = new Recipe("test", 5, RecipeType.DRINK);
+        assertEquals(5, recipe1.getServings());
+        recipe1.scaleServings(2);
+        assertEquals(10, recipe1.getServings());
+    }
 }
 

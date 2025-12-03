@@ -11,16 +11,31 @@ public class RecipeBook
 {
     private String title;
     private String author;
+    private String bookID;
     private ArrayList<Recipe> recipes;
     
     /**
      * Constructor for objects of class RecipeBook
      */
-    public RecipeBook(String title, String author)
+    public RecipeBook(String title, String author, String bookID)
     {
         this.title = title;
         this.author = author;
+        this.bookID = bookID;
         recipes = new ArrayList<>();
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getAuthor() {
+        return author;
+    }
+    
+    public String getBookID()
+    {
+        return bookID;
     }
 
     public void addRecipe(Recipe r)
@@ -122,22 +137,20 @@ public class RecipeBook
     }
     
     @Override
-    public String toString() {
-        if (recipes.isEmpty()) {
-            return "Recipe Book is empty.";
+    public String toString() 
+    {
+        return title + ", " + author;
+    }
+    
+    @Override
+    public boolean equals(Object other) 
+    {
+        RecipeBook otherBook = (RecipeBook) other;
+        if (other instanceof RecipeBook) {
+            if(this.bookID.equals(otherBook.getBookID())) {
+                return true;
+            }
         }
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Recipe Book:\n");
-
-        int index = 1;
-        for (Recipe r : recipes) {
-            sb.append(index++)
-              .append(". ")
-              .append(r.toString())   //uses each Recipe's own toString()
-              .append("\n");
-        }
-
-        return sb.toString();
+        return false;
     }
 }

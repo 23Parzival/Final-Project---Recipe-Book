@@ -1,5 +1,3 @@
- 
-
 
 /**
  * Write a description of class Step here.
@@ -17,5 +15,15 @@ public class Step
     public Step(String description)
     {
         this.description = description;
+    }
+    
+    public String getDescription() 
+    {
+        return description;
+    }
+    
+    public void setDescription(String newDescription) 
+    {
+        description = newDescription;
     }
 }

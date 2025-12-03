@@ -20,4 +20,34 @@ public class Ingredient
         quantity = qty;
         this.unit = unit;
     }
+    
+    public String getName() 
+    {
+        return name;
+    }
+    
+    public double getQuantity() 
+    {
+        return quantity;
+    }
+    
+    public String getUnit() 
+    {
+        return unit;
+    }
+    
+    public void setName(String newName) 
+    {
+        name = newName;
+    }
+    
+    public void setQuantity(double newQuantity) 
+    {
+        quantity = newQuantity;        
+    }
+    
+    public void setUnit(String newUnit) 
+    {
+        unit = newUnit;
+    }
 }

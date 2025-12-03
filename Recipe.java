@@ -68,7 +68,12 @@ public class Recipe
     
     public void setRating(int rating)
     {
-        this.rating = rating;
+        if (rating >= 0 && rating <=5) {
+            this.rating = rating;
+        }
+        else {
+            System.out.println("Enter a valid rating (between 0-5).");
+        }
     }
     
     public void scaleServings(int newServ)

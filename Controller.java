@@ -12,15 +12,17 @@ public class Controller
     private Scanner scanner;
     private RecipeBook recipeBook;
     private MealPlan mealPlan;
+    private Commands commands;
     
     /**
      * Constructor for objects of class InputReader
      */
-    public Controller()
+    public Controller(String title, String author, String bookID)
     {
         scanner = new Scanner(System.in);
-        recipeBook = new RecipeBook();
+        recipeBook = new RecipeBook(title, author, bookID);
         mealPlan = new MealPlan();
+        commands = new Commands(scanner, recipeBook, mealPlan);
     }
     
     public void start()
@@ -33,9 +35,9 @@ public class Controller
             
             switch (command) {
                 case "help" -> printHelp();
-                case "1" -> .listAllRecipes(); //add reference to recipebook somewhere
+                case "1" -> commands.listAllRecipes();
                 case "bye" -> {
-                    printHelp();
+                    printGoodbye();
                     finished = true;
                 }
                 default -> System.out.println("Unknown command. Type 'help' for help");
@@ -56,14 +58,14 @@ public class Controller
     
     private void printHelp() {
         System.out.println("Commands:");
-        System.out.println("1 - List all recipes");
-        System.out.println("2 - Add a new recipe");
-        System.out.println("3 - Search for a recipe");
-        System.out.println("4 - Generate weekly meal plan");
-        System.out.println("bye - Exit program");
+
+        //get list of commands from Commands class
+        for (var entry : commands.getCommandList().entrySet()) {
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
     }
     
-    private void printHelp() {
+    private void printGoodbye() {
         System.out.println("Goodbye!");
     }
 }

@@ -9,18 +9,18 @@ import java.util.Scanner;
  */
 public class Controller
 {
-    private String command;
     private Scanner scanner;
-    private HashMap<String, String> possibleResponses;
+    private RecipeBook recipeBook;
+    private MealPlan mealPlan;
     
     /**
      * Constructor for objects of class InputReader
      */
     public Controller()
     {
-        possibleResponses = new HashMap<>();
         scanner = new Scanner(System.in);
-        fillHashMap();
+        recipeBook = new RecipeBook();
+        mealPlan = new MealPlan();
     }
     
     public void start()
@@ -28,31 +28,19 @@ public class Controller
         boolean finished = false;
         printWelcome();
         while(!finished) {
-            if(!finished) {
-                System.out.print("> ");
-                String command = readInput();
-
-                //quit command
-                if(command.equals("bye")) {
+            System.out.print("> ");
+            String command = readInput();
+            
+            switch (command) {
+                case "help" -> printHelp();
+                case "1" -> .listAllRecipes(); //add reference to recipebook somewhere
+                case "bye" -> {
+                    printHelp();
                     finished = true;
-                    carryOutCommand("bye");
                 }
-                else {
-                    carryOutCommand(command);
-                }
+                default -> System.out.println("Unknown command. Type 'help' for help");
             }
         }
-    }
-
-    public void fillHashMap()
-    {
-        possibleResponses.put("help", "Your possible commands are: \n1.");//add all te commands.
-        possibleResponses.put("1", "");
-        possibleResponses.put("2", "");
-        possibleResponses.put("3", "");
-        possibleResponses.put("4", "");
-        possibleResponses.put("5", "");
-        possibleResponses.put("bye", "Thanks for using the program. Goodbye!");
     }
     
     public String readInput() 
@@ -60,21 +48,22 @@ public class Controller
         return scanner.nextLine().trim().toLowerCase();
     }
     
-    public void carryOutCommand(String command) 
-    {
-        switch(readInput()) {
-            case "help" -> System.out.println(possibleResponses.get("help"));
-            case "1" -> System.out.println(possibleResponses.get("1")); //add method call
-            case "2" -> System.out.println(possibleResponses.get("2")); //add method call
-            //all other cases
-            case "bye" -> System.out.println(possibleResponses.get("bye"));
-            default -> System.out.println("Unknown command. Type 'help' for a list of commands.");
-        }
-    }
-    
-    public void printWelcome() 
+    private void printWelcome() 
     {
         System.out.println("Welcome to your RecipeBook!");
         System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-10.");
+    }
+    
+    private void printHelp() {
+        System.out.println("Commands:");
+        System.out.println("1 - List all recipes");
+        System.out.println("2 - Add a new recipe");
+        System.out.println("3 - Search for a recipe");
+        System.out.println("4 - Generate weekly meal plan");
+        System.out.println("bye - Exit program");
+    }
+    
+    private void printHelp() {
+        System.out.println("Goodbye!");
     }
 }

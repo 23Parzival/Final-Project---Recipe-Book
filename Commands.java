@@ -36,7 +36,7 @@ public class Commands
     
     public void listAllRecipes()
     {
-        commandList.put("1", "List all recipes");
+        commandList.put("3", "List all recipes");
         
         System.out.println("--- All Recipes ---");
 

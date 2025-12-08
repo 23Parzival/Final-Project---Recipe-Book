@@ -29,6 +29,11 @@ public class RecipeBook
         return title;
     }
     
+    public void setTitle(String newTitle) 
+    {
+        title = newTitle;
+    }
+    
     public String getAuthor() {
         return author;
     }
@@ -48,7 +53,7 @@ public class RecipeBook
         return recipes;
     }
     
-    public ArrayList<Recipe> listByType(RecipeType t) 
+    public ArrayList<Recipe> searchByType(RecipeType t) 
     {
         if(!recipes.isEmpty()) {
             ArrayList<Recipe> recipesByType = new ArrayList<>();

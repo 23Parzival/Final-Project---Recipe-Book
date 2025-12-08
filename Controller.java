@@ -36,25 +36,22 @@ public class Controller
             switch (command) {
                 case "help" -> printHelp();
                 //---RecipeBook commands---
-                case "1" -> //change recipe book title
+                case "1" -> commands.changeRecipeBookTitle();
                 case "2" -> commands.listAllRecipes();
-                case "3" -> //list by type
-                case "4" -> //search by title
-                case "5" -> //seach by ingredient
-                case "6" -> //search by tag
-                case "7" -> //get top rated recipe
+                case "3" -> commands.searchRecipeBookByTitle(//parameter);
+                case "4" -> commands.searchRecipeBookByIngredient(//parameter);
+                case "5" -> commands.searchRecipeBookByTag(//parameter);
+                case "6" -> commands.searchRecipeBookByType(//parameter);
+                case "7" -> commands.getTopRatedRecipe();
                 //---Recipe commands---
-                case "8" -> //add recipe(title, servings, type)
-                case "9" -> //get recipe title(recipe r)
-                case "10" -> //get recipe type(recipe r)
-                case "11" -> //get recipe tags(recipe r)
-                case "12" -> //rate recipe(recipe r)
-                case "12" -> //scale recipe servings(recipe r)
+                case "8" -> commands.addRecipeToRecipeBook();
+                case "9" -> commands.rateRecipe(//parameter);
+                case "10" -> commands.scaleRecipeServings(//parameter);
                 //---MealPlan commands---
-                case "13" -> //print weekly plan
-                case "14" -> //assign recipe to day(DayOfWeek day, Recipe r)
-                case "15" -> //remove recipe
-                case "16" -> //clear weekly plan
+                case "11" -> commands.printWeeklyMealPlan();
+                case "12" -> commands.assignRecipeToDay(//parameter);
+                case "13" -> commands.removeRecipeFromDay(//parameter);
+                case "14" -> commands.clearWeeklyPlan();
                 
                 case "bye" -> {
                     printGoodbye();

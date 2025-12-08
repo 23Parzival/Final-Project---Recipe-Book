@@ -15,7 +15,7 @@ public class Recipe
     private EnumSet<Tag> tags;
     private RecipeType type;
     private int rating;
-    private int servings;
+    private double servings;
     
     /**
      * Constructor for objects of class Recipe
@@ -55,7 +55,7 @@ public class Recipe
         return rating;
     }
     
-    public int getServings() 
+    public double getServings() 
     {
         return servings;
     }
@@ -85,7 +85,7 @@ public class Recipe
         }
     }
     
-    public void scaleServings(int newServ)
+    public void scaleServings(double newServ)
     {
         
     }

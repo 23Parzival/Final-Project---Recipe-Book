@@ -85,8 +85,14 @@ public class Recipe
         }
     }
     
-    public void scaleServings(int newServ)
+    public void scaleServings(int scalar)
     {
-        
+        servings = servings * scalar;
+        for(Ingredient i : ingredients)
+        {
+            //double qty = i.getQuantity();
+            //i.setQuantity(qty * scalar);
+            System.out.println(i);
+        }
     }
 }

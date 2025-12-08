@@ -11,8 +11,9 @@ public class DrinkRecipe extends Recipe
     /**
      * Constructor for objects of class DrinkRecipe
      */
-    public DrinkRecipe(boolean chilled)
+    public DrinkRecipe(String title, int servings, RecipeType type, boolean chilled)
     {
+        super(title, servings, type);
         this.chilled = chilled;
     }
 }

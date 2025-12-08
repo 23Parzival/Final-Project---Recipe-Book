@@ -11,8 +11,8 @@ public class MainCourseRecipe extends Recipe
     /**
      * Constructor for objects of class MainCourseRecipe
      */
-    public MainCourseRecipe()
+    public MainCourseRecipe(String title, int servings, RecipeType type)
     {
-        super.title = title;
+        super(title, servings, type);
     }
 }

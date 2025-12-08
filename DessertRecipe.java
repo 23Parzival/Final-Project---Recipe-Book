@@ -12,8 +12,8 @@ public class DessertRecipe extends Recipe
     /**
      * Constructor for objects of class DessertRecipe
      */
-    public DessertRecipe()
+    public DessertRecipe(String title, int servings, RecipeType type)
     {
-        
+        super(title, servings, type);
     }
 }

@@ -8,11 +8,13 @@
 public class MainCourseRecipe extends Recipe
 {
     public int cookingTime;
+    
     /**
      * Constructor for objects of class MainCourseRecipe
      */
-    public MainCourseRecipe(String title, int servings, RecipeType type)
+    public MainCourseRecipe(String title, int servings, RecipeType type, int cookingTime)
     {
         super(title, servings, type);
+        this.cookingTime = cookingTime;
     }
 }

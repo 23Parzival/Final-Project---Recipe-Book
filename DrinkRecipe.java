@@ -8,6 +8,7 @@
 public class DrinkRecipe extends Recipe
 {
     public boolean chilled;
+    
     /**
      * Constructor for objects of class DrinkRecipe
      */

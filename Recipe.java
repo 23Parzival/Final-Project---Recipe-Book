@@ -57,7 +57,7 @@ public class Recipe
     
     public int getServings() 
     {
-        
+        return servings;
     }
 
     public void addIngredient(Ingredient i)

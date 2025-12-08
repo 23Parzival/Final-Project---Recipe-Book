@@ -16,4 +16,9 @@ public class DessertRecipe extends Recipe
     {
         super(title, servings, type);
     }
+    
+    public void setSweetness(int newSweetness)
+    {
+        sweetness = newSweetness;
+    }
 }

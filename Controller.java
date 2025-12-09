@@ -73,7 +73,7 @@ public class Controller
                 case "6" -> commands.searchRecipeBookByType();
                 case "7" -> commands.getTopRatedRecipe();
                 //---Recipe commands---
-                case "8" -> commands.getRecipeIngredients();
+                case "8" -> commands.getRecipeIngredientsAndQuantities();
                 case "9" -> commands.rateRecipe();
                 case "10" -> commands.scaleRecipeServings();
                 //---MealPlan commands---

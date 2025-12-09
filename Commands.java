@@ -126,7 +126,7 @@ public class Commands
         System.out.print("Enter ingredient name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter ingredient quantity: ");
+        System.out.print("Enter ingredient quantity (without units, units are inputted next): ");
         double quantity = Double.parseDouble(scanner.nextLine());
 
         System.out.print("Enter ingredient unit (g, ml, tbsp): ");

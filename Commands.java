@@ -140,7 +140,7 @@ public class Commands
         }
     }
     
-    public void searchRecipBookByType() 
+    public void searchRecipeBookByType() 
     {
         commandList.put("6", "List all recipes by type.");
         
@@ -269,20 +269,70 @@ public class Commands
     public void printWeeklyMealPlan() 
     {
         commandList.put("11", "Print the weekly meal plan.");
+        
+        System.out.println();
+        mealPlan.printWeeklyPlan();
     }
     
-    public void assignRecipeToDay(DayOfWeek d, Recipe r)
+    public void assignRecipeToDay()
     {
         commandList.put("12", "Assigns a specific recipe to a specific day.");
+        
+        System.out.print("Enter day of week (MONDAY, TUESDAY...): ");
+        String dayInput = scanner.nextLine().toUpperCase();
+
+        DayOfWeek day;
+        try {
+            day = DayOfWeek.valueOf(dayInput);
+        } 
+        catch (IllegalArgumentException e) {
+            System.out.println("Invalid day of week.");
+            return;
+        }
+
+        System.out.print("Enter recipe title to assign: ");
+        String title = scanner.nextLine();
+
+        var matches = recipeBook.searchByTitle(title);
+
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
+
+        Recipe r = matches.get(0);
+
+        mealPlan.assignRecipe(day, r);
+
+        System.out.println("Assigned: " + r.getTitle() + " to " + day + ".");
     }
     
-    public void removeRecipeFromDay(DayOfWeek d) 
+    public void removeRecipeFromDay() 
     {
         commandList.put("13", "Remove recipe from specified day.");
+
+        System.out.print("Enter day of week to clear (MONDAY, TUESDAY...): ");
+        String dayInput = scanner.nextLine().toUpperCase();
+
+        DayOfWeek day;
+        try {
+            day = DayOfWeek.valueOf(dayInput);
+        } 
+        catch (IllegalArgumentException e) {
+            System.out.println("Invalid day.");
+            return;
+        }
+
+        mealPlan.removeRecipe(day);
+
+        System.out.println("Removed recipe from " + day + ".");
     }
     
     public void clearWeeklyPlan() 
     {
         commandList.put("14", "Clear the entire meal plan.");
+        
+        mealPlan.clear();
+        System.out.println("Weekly meal plan cleared.");
     }
 }

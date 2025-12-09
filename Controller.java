@@ -17,17 +17,34 @@ public class Controller
     /**
      * Constructor for objects of class InputReader
      */
-    public Controller(String title, String author, String bookID)
+    public Controller()
     {
         scanner = new Scanner(System.in);
-        recipeBook = new RecipeBook(title, author, bookID);
-        mealPlan = new MealPlan();
-        commands = new Commands(scanner, recipeBook, mealPlan);
     }
     
     public void start()
     {
         boolean finished = false;
+        
+        System.out.println("Welcome! Let's set up your Recipe Book.");
+
+        System.out.print("Enter Recipe Book Title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Enter Recipe Book Author: ");
+        String author = scanner.nextLine();
+
+        System.out.print("Enter Recipe Book ID: ");
+        String bookID = scanner.nextLine();
+        
+        recipeBook = new RecipeBook(title, author, bookID);
+        mealPlan = new MealPlan();
+        commands = new Commands(scanner, recipeBook, mealPlan);
+
+        System.out.println("Recipe Book created successfully!");
+        System.out.println("Title: " + title + ", Author: " + author + ", ID: " + bookID);
+        System.out.println();
+        
         printWelcome();
         while(!finished) {
             System.out.print("> ");
@@ -38,19 +55,19 @@ public class Controller
                 //---RecipeBook commands---
                 case "1" -> commands.changeRecipeBookTitle();
                 case "2" -> commands.listAllRecipes();
-                case "3" -> commands.searchRecipeBookByTitle(//parameter);
-                case "4" -> commands.searchRecipeBookByIngredient(//parameter);
-                case "5" -> commands.searchRecipeBookByTag(//parameter);
-                case "6" -> commands.searchRecipeBookByType(//parameter);
+                case "3" -> commands.searchRecipeBookByTitle();
+                case "4" -> commands.searchRecipeBookByIngredient();
+                case "5" -> commands.searchRecipeBookByTag();
+                case "6" -> commands.searchRecipeBookByType();
                 case "7" -> commands.getTopRatedRecipe();
                 //---Recipe commands---
                 case "8" -> commands.addRecipeToRecipeBook();
-                case "9" -> commands.rateRecipe(//parameter);
-                case "10" -> commands.scaleRecipeServings(//parameter);
+                case "9" -> commands.rateRecipe();
+                case "10" -> commands.scaleRecipeServings();
                 //---MealPlan commands---
                 case "11" -> commands.printWeeklyMealPlan();
-                case "12" -> commands.assignRecipeToDay(//parameter);
-                case "13" -> commands.removeRecipeFromDay(//parameter);
+                case "12" -> commands.assignRecipeToDay();
+                case "13" -> commands.removeRecipeFromDay();
                 case "14" -> commands.clearWeeklyPlan();
             }
         }

@@ -57,13 +57,13 @@ public class Commands
         commandList.put("5", "Search the recipe book by a tag.");
         commandList.put("6", "List all recipes by type.");
         commandList.put("7", "Get the highest rated recipe in the recipe book.");
-        commandList.put("8", "Add a recipe to the recipe book.");
-        commandList.put("9", "Rate a specific recipe in the recipe book.");
-        commandList.put("10", "Scale a specific recipes servings.");
-        commandList.put("11", "Print the weekly meal plan.");
-        commandList.put("12", "Assigns a specific recipe to a specific day.");
-        commandList.put("13", "Remove recipe from specified day.");
-        commandList.put("14", "Clear the entire meal plan.");
+        //commandList.put("#", "Add a recipe to the recipe book.");
+        commandList.put("8", "Rate a specific recipe in the recipe book.");
+        commandList.put("9", "Scale a specific recipes servings.");
+        commandList.put("10", "Print the weekly meal plan.");
+        commandList.put("11", "Assigns a specific recipe to a specific day.");
+        commandList.put("12", "Remove recipe from specified day.");
+        commandList.put("13", "Clear the entire meal plan.");
     }
     
     //--*EVERYTHING UNDER THIS IS THE ACTUAL COMMANDS*--
@@ -229,36 +229,36 @@ public class Commands
         }
     }
     
-    /**
-     * Prompts the user to add a new recipe to the RecipeBook.
-     */
-    public void addRecipeToRecipeBook() 
-    {
-        System.out.print("Enter recipe title: ");
-        String title = scanner.nextLine();
+    // /**
+     // * Prompts the user to add a new recipe to the RecipeBook.
+     // */
+    // public void addRecipeToRecipeBook() 
+    // {
+        // System.out.print("Enter recipe title: ");
+        // String title = scanner.nextLine();
 
-        System.out.print("Enter number of servings: ");
-        double servings = Double.parseDouble(scanner.nextLine());
+        // System.out.print("Enter number of servings: ");
+        // double servings = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Enter recipe type (MAIN_COURSE, DESSERT or DRINK): ");
-        String typeString = scanner.nextLine();
+        // System.out.print("Enter recipe type (MAIN_COURSE, DESSERT or DRINK): ");
+        // String typeString = scanner.nextLine();
 
-        RecipeType type;
+        // RecipeType type;
 
-        try {
-            type = RecipeType.valueOf(typeString.toUpperCase());
-        } 
-        catch (Exception e) {
-            System.out.println("Invalid recipe type.");
-            return;
-        }
+        // try {
+            // type = RecipeType.valueOf(typeString.toUpperCase());
+        // } 
+        // catch (Exception e) {
+            // System.out.println("Invalid recipe type.");
+            // return;
+        // }
 
-        Recipe newRecipe = new Recipe(title, servings, type);
-        //to add later: if specific type of recipe, ex: add mainCourse
-        recipeBook.addRecipe(newRecipe);
+        // Recipe newRecipe = new Recipe(title, servings, type);
+        // //to add later: if specific type of recipe, ex: add mainCourse
+        // recipeBook.addRecipe(newRecipe);
 
-        System.out.println("Added recipe: " + title);
-    }
+        // System.out.println("Added recipe: " + title);
+    // }
     
     /**
      * Prompts the user to rate a recipe in the RecipeBook.

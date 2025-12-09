@@ -95,4 +95,20 @@ public class Recipe
             System.out.println(i);
         }
     }
+    
+    public void fillRecipeBook() 
+    {
+        
+    }
+    
+    /**
+     * Returns a string representation of the RecipeBook.
+     * 
+     * @return A string in the format ""
+     */
+    @Override
+    public String toString() 
+    {
+        
+    }
 }

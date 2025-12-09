@@ -1,14 +1,12 @@
-PROJECT TITLE:
+PROJECT TITLE: Final Project - Recipe Book
 
-PURPOSE OF PROJECT:
+PURPOSE OF PROJECT: To simulate a virtual recipe book in a program.
 
-VERSION or DATE:
+VERSION: 1.0
 
-HOW TO START THIS PROJECT:
+HOW TO START THIS PROJECT: In Bluej, create a Controller object and call its start() method. In CMD, call main() method of Controller class.
 
-AUTHORS:
+AUTHORS: Julien P-H and Chistina A.
 
-USER INSTRUCTIONS:
-
-LISCENCE:
+LISCENCE: Apache License, Version 2.0 Copyright 2025 Julien P-H & Christina A.
 

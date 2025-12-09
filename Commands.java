@@ -3,9 +3,11 @@ import java.util.LinkedHashMap;
 import java.util.ArrayList;
 
 /**
- * Write a description of class Commands here.
- *
- * @author (your name)
+ * Handles all user commands for interacting with a RecipeBook and MealPlan.
+ * Provides methods to add, search, rate, scale recipes and manage meal plans.
+ * Stores a LinkedHashMap of commands for display and reference.
+ * 
+ * @author Julien P-H
  * @version (a version number or a date)
  */
 public class Commands
@@ -16,7 +18,11 @@ public class Commands
     private LinkedHashMap<String, String> commandList;
     
     /**
-     * Constructor for objects of class Commands
+     * Constructs a Commands object for a specific RecipeBook and MealPlan.
+     * 
+     * @param scanner    Scanner object for reading user input
+     * @param recipeBook The RecipeBook instance to manipulate
+     * @param mealPlan   The MealPlan instance to manipulate
      */
     public Commands(Scanner scanner, RecipeBook recipeBook, MealPlan mealPlan)
     {
@@ -27,11 +33,19 @@ public class Commands
         fillCommandList();
     }
     
+    /**
+     * Returns the LinkedHashMap of all available commands and descriptions.
+     * 
+     * @return The command list map
+     */
     public LinkedHashMap<String, String> getCommandList()
     {
         return commandList;
     }
     
+    /**
+     * Populates the command list with all available commands and descriptions.
+     */
     public void fillCommandList() 
     {
         commandList.put("help", "Show all commands");
@@ -55,6 +69,9 @@ public class Commands
     //--*EVERYTHING UNDER THIS IS THE ACTUAL COMMANDS*--
     //EVERY COMMAND MUST START WITH commandList.put(#, description);
     
+    /**
+     * When called, prompts the user to change the RecipeBook title.
+     */
     public void changeRecipeBookTitle() 
     {
         System.out.print("Enter new recipe book title: ");
@@ -64,6 +81,9 @@ public class Commands
         System.out.println("Recipe book title changed to: " + title);
     }
     
+    /**
+     * Lists all recipes currently in the RecipeBook.
+     */
     public void listAllRecipes()
     {
         System.out.println("--- All Recipes ---");
@@ -78,6 +98,9 @@ public class Commands
         }
     }
     
+    /**
+     * Searches the RecipeBook by recipe title entered by the user.
+     */
     public void searchRecipeBookByTitle() 
     {
         System.out.print("Enter recipe title to search: ");
@@ -95,6 +118,9 @@ public class Commands
         }
     }
     
+    /**
+     * Searches the RecipeBook by a specific ingredient entered by the user.
+     */
     public void searchRecipeBookByIngredient() 
     {
         System.out.print("Enter ingredient name: ");
@@ -121,6 +147,9 @@ public class Commands
         }
     }
     
+    /**
+     * Searches the RecipeBook by a specific Tag entered by the user.
+     */
     public void searchRecipeBookByTag() 
     {
         System.out.println("Available tags: VEGAN, VEGETARIAN, GLUTEN_FREE, QUICK, LOW_CALORIE, HIGH_PROTEIN");
@@ -150,6 +179,9 @@ public class Commands
         }
     }
     
+    /**
+     * Searches the RecipeBook by a specific RecipeType entered by the user.
+     */
     public void searchRecipeBookByType() 
     {
         System.out.println("Available types: MAIN_COURSE, DESSERT, DRINK");
@@ -179,6 +211,9 @@ public class Commands
         }
     }
     
+    /**
+     * Displays the top-rated recipe(s) in the RecipeBook.
+     */
     public void getTopRatedRecipe() 
     {
         var results = recipeBook.getTopRated();
@@ -194,6 +229,9 @@ public class Commands
         }
     }
     
+    /**
+     * Prompts the user to add a new recipe to the RecipeBook.
+     */
     public void addRecipeToRecipeBook() 
     {
         System.out.print("Enter recipe title: ");
@@ -222,6 +260,9 @@ public class Commands
         System.out.println("Added recipe: " + title);
     }
     
+    /**
+     * Prompts the user to rate a recipe in the RecipeBook.
+     */
     public void rateRecipe() 
     {
         System.out.print("Enter recipe title to rate: ");
@@ -243,6 +284,9 @@ public class Commands
         System.out.println("Rated recipe: " + r.getTitle() + " as " + rating);
     }
     
+    /**
+     * Prompts the user to scale the servings of a recipe.
+     */
     public void scaleRecipeServings() 
     {
         System.out.print("Enter recipe title to scale: ");
@@ -266,12 +310,18 @@ public class Commands
         System.out.println("New servings: " + r.getServings());
     }
     
+    /**
+     * Prints the weekly meal plan.
+     */
     public void printWeeklyMealPlan() 
     {
         System.out.println();
         mealPlan.printWeeklyPlan();
     }
     
+    /**
+     * Assigns a recipe to a specific day in the meal plan.
+     */
     public void assignRecipeToDay()
     {
         System.out.print("Enter day of week (MONDAY, TUESDAY...): ");
@@ -303,6 +353,9 @@ public class Commands
         System.out.println("Assigned: " + r.getTitle() + " to " + day + ".");
     }
     
+    /**
+     * Removes a recipe from a specific day in the meal plan.
+     */
     public void removeRecipeFromDay() 
     {
         System.out.print("Enter day of week to clear (MONDAY, TUESDAY...): ");
@@ -322,6 +375,9 @@ public class Commands
         System.out.println("Removed recipe from " + day + ".");
     }
     
+    /**
+     * Clears the entire weekly meal plan.
+     */
     public void clearWeeklyPlan() 
     {
         mealPlan.clear();

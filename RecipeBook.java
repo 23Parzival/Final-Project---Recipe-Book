@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Write a description of class RecipeBook here.
+ * Represents a RecipeBook that contains multiple recipes.
+ * Provides methods to add, search, and retrieve recipes.
+ * Each RecipeBook has a title, author, and unique bookID.
  *
  * @author Julien P-H
  * @version (a version number or a date)
@@ -15,7 +17,12 @@ public class RecipeBook
     private ArrayList<Recipe> recipes;
     
     /**
-     * Constructor for objects of class RecipeBook
+     * Constructs a new RecipeBook with the specified title, author, and ID.
+     * Initializes an empty list of recipes.
+     * 
+     * @param title  The title of the recipe book
+     * @param author The author of the recipe book
+     * @param bookID The unique identifier for the recipe book
      */
     public RecipeBook(String title, String author, String bookID)
     {
@@ -25,34 +32,70 @@ public class RecipeBook
         recipes = new ArrayList<>();
     }
     
+    /**
+     * Returns the title of the recipe book.
+     * 
+     * @return The title of the recipe book
+     */
     public String getTitle() {
         return title;
     }
     
+    /**
+     * Sets a new title for the recipe book.
+     * 
+     * @param newTitle The new title to set
+     */
     public void setTitle(String newTitle) 
     {
         title = newTitle;
     }
     
+    /**
+     * Returns the author of the recipe book.
+     * 
+     * @return The author of the recipe book
+     */
     public String getAuthor() {
         return author;
     }
     
+    /**
+     * Returns the unique identifier (ID) of the recipe book.
+     * 
+     * @return The book ID
+     */
     public String getBookID()
     {
         return bookID;
     }
 
+    /**
+     * Adds a recipe to the recipe book.
+     * 
+     * @param r The Recipe object to add
+     */
     public void addRecipe(Recipe r)
     {
         recipes.add(r);
     }
     
+    /**
+     * Returns a list of all recipes in the book.
+     * 
+     * @return An ArrayList of all Recipe objects
+     */
     public ArrayList<Recipe> listAllRecipes() 
     {
         return recipes;
     }
     
+    /**
+     * Returns a list of recipes matching the given type.
+     * 
+     * @param t The RecipeType to search for
+     * @return An ArrayList of recipes of the specified type, or null if the book is empty
+     */
     public ArrayList<Recipe> searchByType(RecipeType t) 
     {
         if(!recipes.isEmpty()) {
@@ -69,6 +112,12 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Returns a list of recipes with a matching title.
+     * 
+     * @param t The title to search for
+     * @return An ArrayList of recipes with the given title, or null if the book is empty
+     */
     public ArrayList<Recipe> searchByTitle(String t) 
     {
         if(!recipes.isEmpty()) {
@@ -85,6 +134,12 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Returns a list of recipes that contain a specific ingredient.
+     * 
+     * @param i The Ingredient to search for
+     * @return An ArrayList of recipes containing the ingredient, or null if the book is empty
+     */
     public ArrayList<Recipe> searchByIngredient(Ingredient i)
     {
         if(!recipes.isEmpty()) {
@@ -101,6 +156,12 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Returns a list of recipes that contain a specific tag.
+     * 
+     * @param t The Tag to search for
+     * @return An ArrayList of recipes with the given tag, or null if the book is empty
+     */
     public ArrayList<Recipe> searchByTag(Tag t) 
     {
         if(!recipes.isEmpty()) {
@@ -117,6 +178,11 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Returns a list of the highest rated recipe(s) in the book.
+     * 
+     * @return An ArrayList of the top-rated recipes, or null if the book is empty
+     */
     public ArrayList<Recipe> getTopRated() 
     {
         if(!recipes.isEmpty()) {
@@ -141,12 +207,23 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Returns a string representation of the RecipeBook.
+     * 
+     * @return A string in the format "title, author"
+     */
     @Override
     public String toString() 
     {
         return title + ", " + author;
     }
     
+    /**
+     * Compares this RecipeBook with another object for equality based on bookID.
+     * 
+     * @param other The object to compare with
+     * @return true if other is a RecipeBook with the same bookID, false otherwise
+     */
     @Override
     public boolean equals(Object other) 
     {

@@ -2,7 +2,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * Write a description of class InputReader here.
+ * Controller class for the RecipeBook application.
+ * Handles user input, commands, and the main application loop.
+ * It manages a RecipeBook, a MealPlan, and the Commands class.
  *
  * @author Julien P-H
  * @version (a version number or a date)
@@ -16,12 +18,18 @@ public class Controller
     
     /**
      * Constructor for objects of class InputReader
+     * Initializes the Scanner object for user input.
      */
     public Controller()
     {
         scanner = new Scanner(System.in);
     }
     
+    /**
+     * Starts the main application.
+     * Prompts the user to set up the RecipeBook, then enters a command loop
+     * where the user can call commands, view the meal plan, or quit the program.
+     */
     public void start()
     {
         boolean finished = false;
@@ -77,17 +85,30 @@ public class Controller
         }
     }
     
+    /**
+     * Reads a line of input from the user.
+     * Trims leading/trailing whitespace and converts to lowercase.
+     * 
+     * @return The user's input as a lowercase string.
+     */
     private String readInput() 
     {
         return scanner.nextLine().trim().toLowerCase();
     }
     
+    /**
+     * Prints the welcome message when the program starts.
+     */
     private void printWelcome() 
     {
         System.out.println("Welcome to your RecipeBook!");
         System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-10.");
     }
     
+    /**
+     * Prints a list of all available commands with their descriptions.
+     * The commands are retrieved from the Commands class.
+     */
     private void printHelp() {
         System.out.println("Commands:");
 
@@ -97,7 +118,22 @@ public class Controller
         }
     }
     
+    /**
+     * Prints a goodbye message when the user exits the program.
+     */
     private void printGoodbye() {
         System.out.println("Goodbye!");
+    }
+    
+    /**
+     * Main method so the program can run outside BlueJ.
+     * Creates a Controller instance and starts the application.
+     * 
+     * @param args Command line arguments (not used)
+     */
+    public static void main(String[] args)
+    {
+        Controller controller = new Controller();
+        controller.start();
     }
 }

@@ -1,8 +1,7 @@
  
-
-
 /**
- * Enumeration class DayOfWeek - write a description of the enum class here
+ * Represents the seven days of the week.
+ * Can be used for scheduling recipes in a MealPlan.
  *
  * @author Julien P-H
  * @version (version number or date here)

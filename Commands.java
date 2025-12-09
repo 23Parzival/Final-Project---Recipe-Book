@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +13,7 @@ public class Commands
     private Scanner scanner;
     private RecipeBook recipeBook;
     private MealPlan mealPlan;
-    private HashMap<String, String> commandList;
+    private LinkedHashMap<String, String> commandList;
     
     /**
      * Constructor for objects of class Commands
@@ -23,13 +23,33 @@ public class Commands
         this.scanner = scanner;
         this.recipeBook = recipeBook;
         this.mealPlan = mealPlan;
-        commandList = new HashMap<>();
+        commandList = new LinkedHashMap<>();
+        fillCommandList();
     }
     
-    public HashMap<String, String> getCommandList()
+    public LinkedHashMap<String, String> getCommandList()
+    {
+        return commandList;
+    }
+    
+    public void fillCommandList() 
     {
         commandList.put("help", "Show all commands");
-        return commandList;
+        commandList.put("quit", "Quit the program");
+        commandList.put("1", "Change the recipe books title.");
+        commandList.put("2", "List all recipes.");
+        commandList.put("3", "Search recipe book by title.");
+        commandList.put("4", "Search the recipe book by a specific ingredient.");
+        commandList.put("5", "Search the recipe book by a tag.");
+        commandList.put("6", "List all recipes by type.");
+        commandList.put("7", "Get the highest rated recipe in the recipe book.");
+        commandList.put("8", "Add a recipe to the recipe book.");
+        commandList.put("9", "Rate a specific recipe in the recipe book.");
+        commandList.put("10", "Scale a specific recipes servings.");
+        commandList.put("11", "Print the weekly meal plan.");
+        commandList.put("12", "Assigns a specific recipe to a specific day.");
+        commandList.put("13", "Remove recipe from specified day.");
+        commandList.put("14", "Clear the entire meal plan.");
     }
     
     //--*EVERYTHING UNDER THIS IS THE ACTUAL COMMANDS*--
@@ -37,8 +57,6 @@ public class Commands
     
     public void changeRecipeBookTitle() 
     {
-        commandList.put("1", "Change the recipe books title.");
-        
         System.out.print("Enter new recipe book title: ");
         String title = scanner.nextLine();
         
@@ -48,8 +66,6 @@ public class Commands
     
     public void listAllRecipes()
     {
-        commandList.put("2", "List all recipes.");
-        
         System.out.println("--- All Recipes ---");
 
         if (recipeBook.listAllRecipes().isEmpty()) {
@@ -64,8 +80,6 @@ public class Commands
     
     public void searchRecipeBookByTitle() 
     {
-        commandList.put("3", "Search recipe book by title.");
-        
         System.out.print("Enter recipe title to search: ");
         String title = scanner.nextLine();
         
@@ -83,8 +97,6 @@ public class Commands
     
     public void searchRecipeBookByIngredient() 
     {
-        commandList.put("4", "Search the recipe book by a specific ingredient.");
-        
         System.out.print("Enter ingredient name: ");
         String name = scanner.nextLine();
 
@@ -111,8 +123,6 @@ public class Commands
     
     public void searchRecipeBookByTag() 
     {
-        commandList.put("5", "Search the recipe book by a tag.");
-        
         System.out.println("Available tags: VEGAN, VEGETARIAN, GLUTEN_FREE, QUICK, LOW_CALORIE, HIGH_PROTEIN");
         System.out.print("Enter tag: ");
         String tagInput = scanner.nextLine().toUpperCase();
@@ -142,8 +152,6 @@ public class Commands
     
     public void searchRecipeBookByType() 
     {
-        commandList.put("6", "List all recipes by type.");
-        
         System.out.println("Available types: MAIN_COURSE, DESSERT, DRINK");
         System.out.print("Enter recipe type: ");
         String typeInput = scanner.nextLine().toUpperCase();
@@ -173,8 +181,6 @@ public class Commands
     
     public void getTopRatedRecipe() 
     {
-        commandList.put("7", "Get the highest rated recipe in the recipe book.");
-        
         var results = recipeBook.getTopRated();
 
         if (results == null || results.isEmpty()) {
@@ -190,15 +196,13 @@ public class Commands
     
     public void addRecipeToRecipeBook() 
     {
-        commandList.put("8", "Add a recipe to the recipe book.");
-        
         System.out.print("Enter recipe title: ");
         String title = scanner.nextLine();
 
         System.out.print("Enter number of servings: ");
         double servings = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Enter recipe type: ");
+        System.out.print("Enter recipe type (MAIN_COURSE, DESSERT or DRINK): ");
         String typeString = scanner.nextLine();
 
         RecipeType type;
@@ -220,8 +224,6 @@ public class Commands
     
     public void rateRecipe() 
     {
-        commandList.put("9", "Rate a specific recipe in the recipe book.");
-        
         System.out.print("Enter recipe title to rate: ");
         String title = scanner.nextLine();
 
@@ -243,8 +245,6 @@ public class Commands
     
     public void scaleRecipeServings() 
     {
-        commandList.put("10", "Scale a specific recipes servings.");
-
         System.out.print("Enter recipe title to scale: ");
         String title = scanner.nextLine();
 
@@ -268,16 +268,12 @@ public class Commands
     
     public void printWeeklyMealPlan() 
     {
-        commandList.put("11", "Print the weekly meal plan.");
-        
         System.out.println();
         mealPlan.printWeeklyPlan();
     }
     
     public void assignRecipeToDay()
     {
-        commandList.put("12", "Assigns a specific recipe to a specific day.");
-        
         System.out.print("Enter day of week (MONDAY, TUESDAY...): ");
         String dayInput = scanner.nextLine().toUpperCase();
 
@@ -309,8 +305,6 @@ public class Commands
     
     public void removeRecipeFromDay() 
     {
-        commandList.put("13", "Remove recipe from specified day.");
-
         System.out.print("Enter day of week to clear (MONDAY, TUESDAY...): ");
         String dayInput = scanner.nextLine().toUpperCase();
 
@@ -330,8 +324,6 @@ public class Commands
     
     public void clearWeeklyPlan() 
     {
-        commandList.put("14", "Clear the entire meal plan.");
-        
         mealPlan.clear();
         System.out.println("Weekly meal plan cleared.");
     }

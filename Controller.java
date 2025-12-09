@@ -42,7 +42,7 @@ public class Controller
         commands = new Commands(scanner, recipeBook, mealPlan);
 
         System.out.println("Recipe Book created successfully!");
-        System.out.println("Title: " + title + ", Author: " + author + ", ID: " + bookID);
+        System.out.println("Title: " + title + "\nAuthor: " + author + "\nID: " + bookID);
         System.out.println();
         
         printWelcome();
@@ -52,6 +52,10 @@ public class Controller
             
             switch (command) {
                 case "help" -> printHelp();
+                case "quit" -> {
+                    printGoodbye();
+                    finished = true;
+                }
                 //---RecipeBook commands---
                 case "1" -> commands.changeRecipeBookTitle();
                 case "2" -> commands.listAllRecipes();
@@ -73,7 +77,7 @@ public class Controller
         }
     }
     
-    public String readInput() 
+    private String readInput() 
     {
         return scanner.nextLine().trim().toLowerCase();
     }

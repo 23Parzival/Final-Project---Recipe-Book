@@ -127,13 +127,28 @@ public class Controller
     
     /**
      * Main method so the program can run outside BlueJ.
-     * Creates a Controller instance and starts the application.
+     * Creates a Controller instance depending on user input or closes application.
      * 
      * @param args Command line arguments (not used)
      */
     public static void main(String[] args)
     {
-        Controller controller = new Controller();
-        controller.start();
+        System.out.println("=== Welcome to the Recipe Book Application ===");
+        System.out.println("1 - Start application");
+        System.out.println("2 - Exit");
+
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.nextLine().trim();
+
+        switch (choice) {
+            case "1" -> {
+                Controller controller = new Controller();
+                controller.start();
+            }
+            case "2" -> System.out.println("Exiting application. Goodbye!");
+            default -> System.out.println("Invalid choice.");
+        }
+
+        scanner.close();
     }
 }

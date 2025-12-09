@@ -140,7 +140,7 @@ public class Commands
         }
     }
     
-    public void searchRecipBookByType(RecipeType t) 
+    public void searchRecipBookByType() 
     {
         commandList.put("6", "List all recipes by type.");
         
@@ -191,16 +191,79 @@ public class Commands
     public void addRecipeToRecipeBook() 
     {
         commandList.put("8", "Add a recipe to the recipe book.");
+        
+        System.out.print("Enter recipe title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Enter number of servings: ");
+        double servings = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("Enter recipe type: ");
+        String typeString = scanner.nextLine();
+
+        RecipeType type;
+
+        try {
+            type = RecipeType.valueOf(typeString.toUpperCase());
+        } 
+        catch (Exception e) {
+            System.out.println("Invalid recipe type.");
+            return;
+        }
+
+        Recipe newRecipe = new Recipe(title, servings, type);
+        //to add later: if specific type of recipe, ex: add mainCourse
+        recipeBook.addRecipe(newRecipe);
+
+        System.out.println("Added recipe: " + title);
     }
     
-    public void rateRecipe(Recipe r) 
+    public void rateRecipe() 
     {
         commandList.put("9", "Rate a specific recipe in the recipe book.");
+        
+        System.out.print("Enter recipe title to rate: ");
+        String title = scanner.nextLine();
+
+        var matches = recipeBook.searchByTitle(title);
+
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
+
+        Recipe r = matches.get(0);
+
+        System.out.print("Enter rating (1–5): ");
+        int rating = Integer.parseInt(scanner.nextLine());
+
+        r.setRating(rating);
+        System.out.println("Rated recipe: " + r.getTitle() + " as " + rating);
     }
     
-    public void scaleRecipeServings(Recipe r, double scale) 
+    public void scaleRecipeServings() 
     {
         commandList.put("10", "Scale a specific recipes servings.");
+
+        System.out.print("Enter recipe title to scale: ");
+        String title = scanner.nextLine();
+
+        var matches = recipeBook.searchByTitle(title);
+
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
+
+        Recipe r = matches.get(0);
+
+        System.out.print("Enter scale factor (2 for double, 0.5 for half): ");
+        double scale = Double.parseDouble(scanner.nextLine());
+
+        r.scaleServings(scale);
+
+        System.out.println("Scaled recipe: " + r.getTitle());
+        System.out.println("New servings: " + r.getServings());
     }
     
     public void printWeeklyMealPlan() 

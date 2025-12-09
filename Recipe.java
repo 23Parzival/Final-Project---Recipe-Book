@@ -20,7 +20,7 @@ public class Recipe
     /**
      * Constructor for objects of class Recipe
      */
-    public Recipe(String title, int servings, RecipeType type)
+    public Recipe(String title, double servings, RecipeType type)
     {
         this.title = title;
         this.servings = servings;
@@ -90,8 +90,8 @@ public class Recipe
         servings = servings * scalar;
         for(Ingredient i : ingredients)
         {
-            //double qty = i.getQuantity();
-            //i.setQuantity(qty * scalar);
+            double qty = i.getQuantity();
+            i.setQuantity(qty * scalar);
             System.out.println(i);
         }
     }

@@ -73,14 +73,14 @@ public class Controller
                 case "6" -> commands.searchRecipeBookByType();
                 case "7" -> commands.getTopRatedRecipe();
                 //---Recipe commands---
-                //case "" -> commands.addRecipeToRecipeBook();
-                case "8" -> commands.rateRecipe();
-                case "9" -> commands.scaleRecipeServings();
+                case "8" -> commands.getRecipeIngredients();
+                case "9" -> commands.rateRecipe();
+                case "10" -> commands.scaleRecipeServings();
                 //---MealPlan commands---
-                case "10" -> commands.printWeeklyMealPlan();
-                case "11" -> commands.assignRecipeToDay();
-                case "12" -> commands.removeRecipeFromDay();
-                case "13" -> commands.clearWeeklyPlan();
+                case "11" -> commands.printWeeklyMealPlan();
+                case "12" -> commands.assignRecipeToDay();
+                case "13" -> commands.removeRecipeFromDay();
+                case "14" -> commands.clearWeeklyPlan();
             }
         }
     }
@@ -102,7 +102,7 @@ public class Controller
     private void printWelcome() 
     {
         System.out.println("Welcome to your RecipeBook!");
-        System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-13.");
+        System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-14.");
     }
     
     /**

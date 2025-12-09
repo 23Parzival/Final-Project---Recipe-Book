@@ -57,13 +57,13 @@ public class Commands
         commandList.put("5", "Search the recipe book by a tag.");
         commandList.put("6", "List all recipes by type.");
         commandList.put("7", "Get the highest rated recipe in the recipe book.");
-        //commandList.put("#", "Add a recipe to the recipe book.");
-        commandList.put("8", "Rate a specific recipe in the recipe book.");
-        commandList.put("9", "Scale a specific recipes servings.");
-        commandList.put("10", "Print the weekly meal plan.");
-        commandList.put("11", "Assigns a specific recipe to a specific day.");
-        commandList.put("12", "Remove recipe from specified day.");
-        commandList.put("13", "Clear the entire meal plan.");
+        commandList.put("8", "Get a specified recipes ingredients and quantities.");
+        commandList.put("9", "Rate a specific recipe in the recipe book.");
+        commandList.put("10", "Scale a specific recipes servings.");
+        commandList.put("11", "Print the weekly meal plan.");
+        commandList.put("12", "Assigns a specific recipe to a specific day.");
+        commandList.put("13", "Remove recipe from specified day.");
+        commandList.put("14", "Clear the entire meal plan.");
     }
     
     //--*EVERYTHING UNDER THIS IS THE ACTUAL COMMANDS*--
@@ -229,36 +229,36 @@ public class Commands
         }
     }
     
-    // /**
-     // * Prompts the user to add a new recipe to the RecipeBook.
-     // */
-    // public void addRecipeToRecipeBook() 
-    // {
-        // System.out.print("Enter recipe title: ");
-        // String title = scanner.nextLine();
+    /**
+     * Gets a recipe from the user and lists all of its ingredients with quantities.
+     */
+    public void getRecipeIngredientsAndQuantities()
+    {
+        System.out.print("Enter recipe title: ");
+        String title = scanner.nextLine();
 
-        // System.out.print("Enter number of servings: ");
-        // double servings = Double.parseDouble(scanner.nextLine());
+        var matches = recipeBook.searchByTitle(title);
 
-        // System.out.print("Enter recipe type (MAIN_COURSE, DESSERT or DRINK): ");
-        // String typeString = scanner.nextLine();
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
 
-        // RecipeType type;
+        Recipe r = matches.get(0);
 
-        // try {
-            // type = RecipeType.valueOf(typeString.toUpperCase());
-        // } 
-        // catch (Exception e) {
-            // System.out.println("Invalid recipe type.");
-            // return;
-        // }
+        System.out.println("\n--- Ingredients for: " + r.getTitle() + " ---");
+    
+        var ingredients = r.getIngredients();
 
-        // Recipe newRecipe = new Recipe(title, servings, type);
-        // //to add later: if specific type of recipe, ex: add mainCourse
-        // recipeBook.addRecipe(newRecipe);
+        if (ingredients.isEmpty()) {
+            System.out.println("This recipe has no ingredients listed.");
+            return;
+        }
 
-        // System.out.println("Added recipe: " + title);
-    // }
+        for (Ingredient i : ingredients) {
+            System.out.println("- " + i);
+        }
+    }
     
     /**
      * Prompts the user to rate a recipe in the RecipeBook.

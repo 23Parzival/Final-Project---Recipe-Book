@@ -65,6 +65,10 @@ public class Recipe
         ingredients.add(i);
     }
     
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
+    }
+    
     public void addStep(Step s)
     {
         steps.add(s);

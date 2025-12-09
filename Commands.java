@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Write a description of class Commands here.
@@ -80,24 +81,111 @@ public class Commands
         }
     }
     
-    public void searchRecipeBookByIngredient(Ingredient i) 
+    public void searchRecipeBookByIngredient() 
     {
         commandList.put("4", "Search the recipe book by a specific ingredient.");
+        
+        System.out.print("Enter ingredient name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter ingredient quantity: ");
+        double quantity = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("Enter ingredient unit (g, ml, tbsp): ");
+        String unit = scanner.nextLine();
+
+        Ingredient ingredient = new Ingredient(name, quantity, unit);
+
+        ArrayList<Recipe> results = recipeBook.searchByIngredient(ingredient);
+        
+        if (results == null || results.isEmpty()) {
+            System.out.println("No recipes contain ingredient: " + ingredient);
+        } 
+        else {
+            System.out.println("\n--- Recipes Containing Ingredient: " + ingredient + " ---");
+            for (Recipe r : results) {
+                System.out.println(r);
+            }
+        }
     }
     
-    public void searchRecipeBookByTag(Tag t) 
+    public void searchRecipeBookByTag() 
     {
         commandList.put("5", "Search the recipe book by a tag.");
+        
+        System.out.println("Available tags: VEGAN, VEGETARIAN, GLUTEN_FREE, QUICK, LOW_CALORIE, HIGH_PROTEIN");
+        System.out.print("Enter tag: ");
+        String tagInput = scanner.nextLine().toUpperCase();
+
+        Tag tag;
+
+        try {
+            tag = Tag.valueOf(tagInput);
+        } 
+        catch (IllegalArgumentException e) {
+            System.out.println("Invalid tag.");
+            return;
+        }
+
+        ArrayList<Recipe> results = recipeBook.searchByTag(tag);
+
+        if (results == null || results.isEmpty()) {
+            System.out.println("No recipes found with tag: " + tag);
+        } 
+        else {
+            System.out.println("\n--- Recipes With Tag: " + tag + " ---");
+            for (Recipe r : results) {
+                System.out.println(r);
+            }
+        }
     }
     
     public void searchRecipBookByType(RecipeType t) 
     {
         commandList.put("6", "List all recipes by type.");
+        
+        System.out.println("Available types: MAIN_COURSE, DESSERT, DRINK");
+        System.out.print("Enter recipe type: ");
+        String typeInput = scanner.nextLine().toUpperCase();
+
+        RecipeType type;
+
+        try {
+            type = RecipeType.valueOf(typeInput);
+        } 
+        catch (IllegalArgumentException e) {
+            System.out.println("Invalid recipe type.");
+            return;
+        }
+
+        ArrayList<Recipe> results = recipeBook.searchByType(type);
+
+        if (results == null || results.isEmpty()) {
+            System.out.println("No recipes of type: " + type);
+        }   
+        else {
+            System.out.println("\n--- Recipes of Type: " + type + " ---");
+            for (Recipe r : results) {
+                System.out.println(r);
+            }
+        }
     }
     
     public void getTopRatedRecipe() 
     {
         commandList.put("7", "Get the highest rated recipe in the recipe book.");
+        
+        var results = recipeBook.getTopRated();
+
+        if (results == null || results.isEmpty()) {
+            System.out.println("No recipes found or no ratings.");
+        } 
+        else {
+            System.out.println("\n--- Top Rated Recipes ---");
+            for (Recipe r : results) {
+                System.out.println(r);
+            }
+        }
     }
     
     public void addRecipeToRecipeBook() 

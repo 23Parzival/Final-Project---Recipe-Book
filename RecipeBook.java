@@ -69,7 +69,7 @@ public class RecipeBook
         }
     }
     
-    public ArrayList<Recipe> seachByTitle(String t) 
+    public ArrayList<Recipe> searchByTitle(String t) 
     {
         if(!recipes.isEmpty()) {
             ArrayList<Recipe> recipesByTitle = new ArrayList<>();

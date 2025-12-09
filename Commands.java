@@ -37,6 +37,12 @@ public class Commands
     public void changeRecipeBookTitle() 
     {
         commandList.put("1", "Change the recipe books title.");
+        
+        System.out.print("Enter new recipe book title: ");
+        String title = scanner.nextLine();
+        
+        recipeBook.setTitle(title);
+        System.out.println("Recipe book title changed to: " + title);
     }
     
     public void listAllRecipes()
@@ -55,9 +61,23 @@ public class Commands
         }
     }
     
-    public void searchRecipeBookByTitle(String title) 
+    public void searchRecipeBookByTitle() 
     {
         commandList.put("3", "Search recipe book by title.");
+        
+        System.out.print("Enter recipe title to search: ");
+        String title = scanner.nextLine();
+        
+        var results = recipeBook.searchByTitle(title);
+        if (results == null || results.isEmpty()) {
+            System.out.println("No recipes found with title: " + title);
+        } 
+        else {
+            System.out.println("\n--- Recipes Matching: " + title + " ---");
+            for (Recipe r : results) {
+                System.out.println(r);
+            }
+        }
     }
     
     public void searchRecipeBookByIngredient(Ingredient i) 

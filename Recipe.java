@@ -100,11 +100,6 @@ public class Recipe
         }
     }
     
-    public void fillRecipeBook() 
-    {
-        
-    }
-    
     /**
      * Returns a string representation of the RecipeBook.
      * 

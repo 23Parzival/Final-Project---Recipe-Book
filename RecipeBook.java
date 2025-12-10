@@ -178,6 +178,58 @@ public class RecipeBook
         }
     }
     
+    public void fillRecipeBook() 
+    {
+        // There's probably a much more efficient way to do this but I'm lazy
+        
+        // Create the recipe
+        Recipe dessert1 = new Recipe("Chocolate Chip Cookies", 12, RecipeType.DESSERT);
+        
+        // Create and add all the ingredients, first wall of code
+        // Yes I stole this recipe from that Tasty app, I LOVE THESE COOKIES
+        Ingredient sugar = new Ingredient("granulated sugar", 0.5, "cup");
+        dessert1.addIngredient(sugar);
+        Ingredient bsugar = new Ingredient("brown sugar", 0.75, "cup");
+        dessert1.addIngredient(bsugar);
+        Ingredient salt = new Ingredient("salt", 1, "teaspoon");
+        dessert1.addIngredient(salt);
+        Ingredient butter = new Ingredient("butter, melted", 0.5, "cup");
+        dessert1.addIngredient(butter);
+        Ingredient egg = new Ingredient("egg", 1, "whole");
+        dessert1.addIngredient(egg);
+        Ingredient vanilla = new Ingredient("vanilla extract", 1, "teaspoon");
+        dessert1.addIngredient(egg);
+        Ingredient flour = new Ingredient("all-purpose flour", 1.25, "cup");
+        dessert1.addIngredient(flour);
+        Ingredient bsoda = new Ingredient("baking soda", 0.5, "teaspoon");
+        dessert1.addIngredient(bsoda);
+        Ingredient cchip = new Ingredient("chocolate chips", 8, "ounce");
+        dessert1.addIngredient(cchip);
+        
+        // Create and add the steps, another wall
+        Step step1 = new Step("In a large bowl, whisk together the sugars, salt, and butter until a paste forms with no lumps.");
+        dessert1.addStep(step1);
+        Step step2 = new Step("Whisk in the egg and vanilla, beating until light ribbons fall off the whisk and remain for a short while before falling back into the mixture.");
+        dessert1.addStep(step2);
+        Step step3 = new Step("Sift in the flour and baking soda, then fold the mixture with a spatula (Be careful not to overmix, which would cause the gluten in the flour to toughen resulting in cakier cookies).");
+        dessert1.addStep(step3);
+        Step step4 = new Step("Fold in the chocolate chunks, then chill the dough for at least 30 minutes.");
+        dessert1.addStep(step4);
+        Step step5 = new Step("Preheat oven to 350 degrees F (180 degrees C). Line a baking sheet with parchment paper.");
+        dessert1.addStep(step5);
+        Step step6 = new Step("Scoop the dough with an ice cream scoop onto the baking sheet, leaving 10cm of space between cookies and 5cm of space between the pan edges");
+        dessert1.addStep(step6);
+        Step step7 = new Step("Bake for 12-15 minutes, until the edges have started to barely brown.");
+        dessert1.addStep(step7);
+        Step step8 = new Step("Cool completely before serving.");
+        dessert1.addStep(step8);
+        Step step9 = new Step("Enjoy!");
+        dessert1.addStep(step9);
+        
+        // FINALLY add the dessert to the book
+        recipes.add(dessert1);
+    }
+    
     /**
      * Returns a list of the highest rated recipe(s) in the book.
      * 

@@ -39,4 +39,10 @@ public class Step
     {
         description = newDescription;
     }
+    
+    @Override
+    public String toString()
+    {
+        return description;
+    }
 }

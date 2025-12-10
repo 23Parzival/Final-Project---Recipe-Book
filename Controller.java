@@ -74,6 +74,7 @@ public class Controller
                 case "7" -> commands.getTopRatedRecipe();
                 //---Recipe commands---
                 case "8" -> commands.getRecipeIngredientsAndQuantities();
+                //case "9" -> commands.getRecipeSteps(); forgot to write a command to get the recipes steps.
                 case "9" -> commands.rateRecipe();
                 case "10" -> commands.scaleRecipeServings();
                 //---MealPlan commands---

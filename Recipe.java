@@ -43,6 +43,11 @@ public class Recipe
         return tags;
     }
     
+    public ArrayList<Step> getSteps() 
+    {
+        return steps;
+    }
+    
     public boolean checkIngredient(Ingredient i) {
         return ingredients.contains(i);
     }

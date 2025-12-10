@@ -261,6 +261,37 @@ public class Commands
     }
     
     /**
+     * Prints the specified recipes steps when.
+     */
+    public void getRecipeSteps() 
+    {
+        System.out.print("Enter recipe title: ");
+        String title = scanner.nextLine();
+
+        var matches = recipeBook.searchByTitle(title);
+
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
+
+        Recipe r = matches.get(0);
+
+        System.out.println("\n--- Steps for: " + r.getTitle() + " ---");
+    
+        var steps = r.getSteps();
+
+        if (steps.isEmpty()) {
+            System.out.println("This recipe has no steps listed.");
+            return;
+        }
+
+        for (Step s : steps) {
+            System.out.println("- " + s);
+        }
+    }
+    
+    /**
      * Prompts the user to rate a recipe in the RecipeBook.
      */
     public void rateRecipe() 

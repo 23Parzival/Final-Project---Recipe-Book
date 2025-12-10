@@ -105,19 +105,19 @@ public class Recipe
         }
     }
     
-    // public void fillRecipeBook() 
-    // {
+    public void fillRecipeBook() 
+    {
         
-    // }
+    }
     
-    // /**
-     // * Returns a string representation of the RecipeBook.
-     // * 
-     // * @return A string in the format ""
-     // */
-    // @Override
-    // public String toString() 
-    // {
-        
-    // }
+    /**
+     * Returns a string representation of the RecipeBook.
+     * 
+     * @return A string in the format ""
+     */
+    @Override
+    public String toString() 
+    {
+        return title;
+    }
 }

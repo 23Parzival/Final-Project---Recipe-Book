@@ -43,6 +43,11 @@ public class Recipe
         return tags;
     }
     
+    public ArrayList<Step> getSteps() 
+    {
+        return steps;
+    }
+    
     public boolean checkIngredient(Ingredient i) {
         return ingredients.contains(i);
     }
@@ -101,9 +106,9 @@ public class Recipe
     }
     
     /**
-     * Returns a string representation of the RecipeBook.
+     * Returns a string representation of the Recipe.
      * 
-     * @return A string in the format ""
+     * @return A string in the format "title"
      */
     @Override
     public String toString() 

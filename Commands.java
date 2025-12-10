@@ -58,12 +58,13 @@ public class Commands
         commandList.put("6", "List all recipes by type.");
         commandList.put("7", "Get the highest rated recipe in the recipe book.");
         commandList.put("8", "Get a specified recipes ingredients and quantities.");
-        commandList.put("9", "Rate a specific recipe in the recipe book.");
-        commandList.put("10", "Scale a specific recipes servings.");
-        commandList.put("11", "Print the weekly meal plan.");
-        commandList.put("12", "Assigns a specific recipe to a specific day.");
-        commandList.put("13", "Remove recipe from specified day.");
-        commandList.put("14", "Clear the entire meal plan.");
+        commandList.put("9", "Get a specified recipes steps.");
+        commandList.put("10", "Rate a specific recipe in the recipe book.");
+        commandList.put("11", "Scale a specific recipes servings.");
+        commandList.put("12", "Print the weekly meal plan.");
+        commandList.put("13", "Assigns a specific recipe to a specific day.");
+        commandList.put("14", "Remove recipe from specified day.");
+        commandList.put("15", "Clear the entire meal plan.");
     }
     
     //--*EVERYTHING UNDER THIS IS THE ACTUAL COMMANDS*--
@@ -127,7 +128,7 @@ public class Commands
         String name = scanner.nextLine();
 
         System.out.print("Enter ingredient quantity (without units, units are inputted next): ");
-        double quantity = Double.parseDouble(scanner.nextLine());
+        double quantity = scanner.nextDouble();
 
         System.out.print("Enter ingredient unit (g, ml, tbsp): ");
         String unit = scanner.nextLine();
@@ -261,6 +262,37 @@ public class Commands
     }
     
     /**
+     * Prints the specified recipes steps when.
+     */
+    public void getRecipeSteps() 
+    {
+        System.out.print("Enter recipe title: ");
+        String title = scanner.nextLine();
+
+        var matches = recipeBook.searchByTitle(title);
+
+        if (matches == null || matches.isEmpty()) {
+            System.out.println("No recipe found with that title.");
+            return;
+        }
+
+        Recipe r = matches.get(0);
+
+        System.out.println("\n--- Steps for: " + r.getTitle() + " ---");
+    
+        var steps = r.getSteps();
+
+        if (steps.isEmpty()) {
+            System.out.println("This recipe has no steps listed.");
+            return;
+        }
+
+        for (Step s : steps) {
+            System.out.println("- " + s);
+        }
+    }
+    
+    /**
      * Prompts the user to rate a recipe in the RecipeBook.
      */
     public void rateRecipe() 
@@ -278,7 +310,7 @@ public class Commands
         Recipe r = matches.get(0);
 
         System.out.print("Enter rating (1–5): ");
-        int rating = Integer.parseInt(scanner.nextLine());
+        int rating = scanner.nextInt();
 
         r.setRating(rating);
         System.out.println("Rated recipe: " + r.getTitle() + " as " + rating);
@@ -302,7 +334,7 @@ public class Commands
         Recipe r = matches.get(0);
 
         System.out.print("Enter scale factor (2 for double, 0.5 for half): ");
-        double scale = Double.parseDouble(scanner.nextLine());
+        double scale = scanner.nextDouble();
 
         r.scaleServings(scale);
 

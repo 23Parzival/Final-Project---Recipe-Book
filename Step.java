@@ -39,4 +39,15 @@ public class Step
     {
         description = newDescription;
     }
+    
+    /**
+     * Returns a string representation of the Step.
+     * 
+     * @return A string in the format "description"
+     */
+    @Override
+    public String toString()
+    {
+        return description;
+    }
 }

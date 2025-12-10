@@ -50,17 +50,17 @@ public class Commands
     {
         commandList.put("help", "Show all commands");
         commandList.put("quit", "Quit the program");
-        commandList.put("1", "Change the recipe books title.");
+        commandList.put("1", "Change the recipe book's title.");
         commandList.put("2", "List all recipes.");
         commandList.put("3", "Search recipe book by title.");
         commandList.put("4", "Search the recipe book by a specific ingredient.");
         commandList.put("5", "Search the recipe book by a tag.");
         commandList.put("6", "List all recipes by type.");
         commandList.put("7", "Get the highest rated recipe in the recipe book.");
-        commandList.put("8", "Get a specified recipes ingredients and quantities.");
-        commandList.put("9", "Get a specified recipes steps.");
+        commandList.put("8", "Get a specified recipe's ingredients and quantities.");
+        commandList.put("9", "Get a specified recipe's steps.");
         commandList.put("10", "Rate a specific recipe in the recipe book.");
-        commandList.put("11", "Scale a specific recipes servings.");
+        commandList.put("11", "Scale a specific recipe's servings.");
         commandList.put("12", "Print the weekly meal plan.");
         commandList.put("13", "Assigns a specific recipe to a specific day.");
         commandList.put("14", "Remove recipe from specified day.");

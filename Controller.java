@@ -103,7 +103,7 @@ public class Controller
     private void printWelcome() 
     {
         System.out.println("Welcome to your RecipeBook!");
-        System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-14.");
+        System.out.println("Type 'help' to get a list of all commands and call a command using numbers 1-15.");
     }
     
     /**

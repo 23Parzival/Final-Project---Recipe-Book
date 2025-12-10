@@ -53,6 +53,8 @@ public class Controller
         System.out.println("Title: " + title + "\nAuthor: " + author + "\nID: " + bookID);
         System.out.println();
         
+        recipeBook.fillRecipeBook();
+        
         printWelcome();
         while(!finished) {
             System.out.print("> ");

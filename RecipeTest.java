@@ -57,6 +57,14 @@ public class RecipeTest
         recipe1.scaleServings(2);
         assertEquals(10, recipe1.getServings());
     }
+
+    @Test
+    public void testToString()
+    {
+        Recipe recipe1 = new Recipe("test", 2, RecipeType.DESSERT);
+        assertEquals("test", recipe1.toString());
+    }
 }
+
 
 

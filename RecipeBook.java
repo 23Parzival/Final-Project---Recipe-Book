@@ -184,6 +184,8 @@ public class RecipeBook
         
         // Create the recipe
         Recipe dessert1 = new Recipe("Chocolate Chip Cookies", 12, RecipeType.DESSERT);
+        dessert1.addTag(Tag.QUICK);
+        dessert1.addTag(Tag.VEGETARIAN);
         
         // Create and add all the ingredients, first wall of code
         // Yes I stole this recipe from that Tasty app, I LOVE THESE COOKIES
@@ -228,6 +230,44 @@ public class RecipeBook
         
         // FINALLY add the dessert to the book
         recipes.add(dessert1);
+        
+        Recipe dessert2 = new Recipe("Brownies", 24, RecipeType.DESSERT);
+        dessert2.addTag(Tag.QUICK);
+        dessert2.addTag(Tag.VEGETARIAN);
+        
+        Ingredient sugar2 = new Ingredient("granulated sugar", 1, "cup");
+        dessert2.addIngredient(sugar);
+        Ingredient salt2 = new Ingredient("salt", 0.5, "teaspoon");
+        dessert2.addIngredient(salt);
+        Ingredient butter2 = new Ingredient("unsalted butter", 180, "grams");
+        dessert2.addIngredient(butter);
+        Ingredient egg2 = new Ingredient("large egg", 4, "whole");
+        dessert2.addIngredient(egg);
+        Ingredient vanilla2 = new Ingredient("vanilla extract", 1, "tablespoon");
+        dessert2.addIngredient(egg);
+        Ingredient flour2 = new Ingredient("all-purpose flour", 1.25, "cup");
+        dessert2.addIngredient(flour);
+        Ingredient bsoda2 = new Ingredient("baking soda", 0.75, "teaspoon");
+        dessert2.addIngredient(bsoda);
+        Ingredient cchip2 = new Ingredient("semisweet chocolate", 170, "grams");
+        dessert2.addIngredient(cchip);
+        
+        Step step11 = new Step("Adjust oven rack to middle position, preheat to 350 degrees. Then, smear butter all over baking pan.");
+        dessert2.addStep(step1);
+        Step step22 = new Step("In a medium bowl, whisk together flour, baking powder and salt.");
+        dessert2.addStep(step2);
+        Step step33 = new Step("In large microwave-safe bowl, combine butter and chocolate. Melt and mix together until smooth.");
+        dessert2.addStep(step3);
+        Step step44 = new Step("Add sugar, eggs, and vanilla to chocolate mixture, mix until smooth.");
+        dessert2.addStep(step4);
+        Step step55 = new Step("Add chocolate mixture(wet) to flour mixture(dry). Stir together with a rubber spatula. Once combined, scrape chocolate batter into pan. Place chocolate chips on top as you please.");
+        dessert2.addStep(step5);
+        Step step66 = new Step("Place into over, bake for 30-35 minutes.");
+        dessert2.addStep(step6);
+        Step step77 = new Step("Once baked, pull it out and let cool for 10 minutes.");
+        dessert2.addStep(step7);
+        
+        recipes.add(dessert2);
     }
     
     /**

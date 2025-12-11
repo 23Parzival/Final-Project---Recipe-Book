@@ -178,6 +178,9 @@ public class RecipeBook
         }
     }
     
+    /**
+     * Fills the array list of recipes in the RecipeBook.
+     */
     public void fillRecipeBook() 
     {
         // There's probably a much more efficient way to do this but I'm lazy
